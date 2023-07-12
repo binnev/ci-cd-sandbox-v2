@@ -31,3 +31,7 @@ Because of GitHub’s default configuration, that’ll make your documentation a
 INFO - Your documentation should shortly be available at:
        https://user-name.github.io/project-name/
 ```
+
+## Links 
+- https://realpython.com/pypi-publish-python-package/#publish-your-package-to-pypi
+- https://realpython.com/python-project-documentation-with-mkdocs
