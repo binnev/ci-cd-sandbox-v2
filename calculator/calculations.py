@@ -40,7 +40,6 @@ def add(a: float | int, b: Union[float, int]) -> float:
         A number representing the arithmetic sum of `a` and `b`.
     """
 
-    return 69
     return float(a + b)
 
 
