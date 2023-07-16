@@ -22,15 +22,13 @@ def check(question: str):
 
 def shell(cmd: str):
     try:
-        subprocess.run(
+        return subprocess.run(
             cmd,
             shell=True,
             check=True,  # raises exception on non-zero returncode
-            capture_output=True,
         )
-    except subprocess.CalledProcessError as e:
-        print(BOLD + FAIL + e.stderr.decode() + ENDC)
-        raise SystemExit
+    except subprocess.CalledProcessError:
+        raise SystemExit(1)
 
 
 def announce(s: str):
@@ -69,7 +67,20 @@ if __name__ == "__main__":
     announce("Bump version and auto-update changelog")
     shell("cz bump")
 
-    print("Building docs")
+    announce("Building package")
+    shell("python -m build")
+
+    announce("Checking package")
+    shell("twine check dist/*")
+
+    announce("PyPI test run")
+    shell("twine upload -r pypitest dist/*")
+    check(f"Does the testpypi output look OK?")
+
+    # announce("PyPI deploy")
+    # shell("twine upload dist/*")
+
+    announce("Building docs")
     # version import needs to happen after bump
     from calculator import __version__
 
@@ -78,20 +89,9 @@ if __name__ == "__main__":
     shell("mike list")
     check("Does the list of docs versions look OK?")
 
-    # print("Deploying docs")
-    # shell(f"mike set-default latest --push")
+    announce("Deploying docs")
+    shell(f"mike set-default latest --push")
 
-    # announce("Building package")
-    # shell("python -m build")
-    # shell("twine check dist/*")
-
-    # print("PyPI test run")
-    # shell("twine upload -r pypitest dist/*")
-    # check(f"Does the testpypi output look OK?")
-    #
-    # print("PyPI deploy")
-    # shell("twine upload dist/*")
-    #
     cleanup()
 
     print("Done!")

@@ -1,3 +1,9 @@
+## 0.7.0 (2023-07-16)
+
+### Feat
+
+- **calculations.one**: added new function one()
+
 ## 0.6.0 (2023-07-16)
 
 ### BREAKING CHANGE
