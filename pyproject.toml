@@ -15,6 +15,10 @@ testpaths = [
 [tool.commitizen]
 name = "cz_conventional_commits"
 tag_format = "$version"
+version_files = [
+    "pyproject.toml:version",
+    "calculator.__init__.py:__version__",
+]
 version_scheme = "semver"
 version_provider = "pep621"
 update_changelog_on_bump = true

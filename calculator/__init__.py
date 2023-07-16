@@ -6,5 +6,5 @@ Modules exported by this package:
 """
 
 
-class Foo:
-    pass
+__version__ = "0.2.0"
+__author__ = "Robin Neville"
