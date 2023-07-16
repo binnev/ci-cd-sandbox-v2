@@ -8,7 +8,7 @@ readme = "README.md"
 line-length = 80
 
 [tool.pytest.ini_options]
-addopts = "-p no:cacheprovider --cov --cov-fail-under=100"
+addopts = "-p no:cacheprovider --cov --cov-fail-under=100 --cov-report term-missing:skip-covered"
 testpaths = [
     "tests",
 ]
