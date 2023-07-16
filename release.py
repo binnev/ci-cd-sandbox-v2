@@ -93,4 +93,4 @@ if __name__ == "__main__":
 
     cleanup()
 
-    print("Done!")
+    print(f"Finished releasing version {__version__}")
