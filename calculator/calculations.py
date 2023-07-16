@@ -112,19 +112,14 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
     return float(a / b)
 
 
-def four():
+def four() -> int:
     """Always return 4
 
     Examples:
         >>> four()
         4
 
-    Args:
-
     Returns:
-        4 (int)
-
-    Raises:
-
+        4
     """
     return 4
