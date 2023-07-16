@@ -1,3 +1,13 @@
+## 0.8.0 (2023-07-16)
+
+### BREAKING CHANGE
+
+- removed calculations.one so will break any old implementations that use it
+
+### Feat
+
+- **calculations.one**: removed calculations.one
+
 ## 0.7.0 (2023-07-16)
 
 ### Feat
