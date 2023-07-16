@@ -1,3 +1,13 @@
+## 0.4.0 (2023-07-16)
+
+### BREAKING CHANGE
+
+- fixed the bug I just introduced
+
+### Fix
+
+- **bug**: fixed the bug
+
 ## 0.3.0 (2023-07-16)
 
 ### Feat
