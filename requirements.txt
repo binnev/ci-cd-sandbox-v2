@@ -9,3 +9,6 @@ black
 pytest
 pytest-cov
 commitizen
+build
+twine
+typer

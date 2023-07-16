@@ -1,3 +1,9 @@
+## 0.5.0 (2023-07-16)
+
+### Feat
+
+- **calculations.zero**: added silly function
+
 ## 0.4.0 (2023-07-16)
 
 ### BREAKING CHANGE
