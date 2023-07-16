@@ -15,8 +15,8 @@ def cleanup():
 
 
 def check(question: str):
-    response = input(question + "[Y/n]: ")
-    if response.strip().lower() not in ["y", ""]:
+    response = input(question + " [y/n]: ")
+    if response.strip().lower() != "y":
         raise Exception(f"Action required")
 
 
