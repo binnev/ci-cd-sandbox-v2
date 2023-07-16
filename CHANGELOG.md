@@ -1,3 +1,13 @@
+## 0.6.0 (2023-07-16)
+
+### BREAKING CHANGE
+
+- removed calculations.zero which will break old implementations
+
+### Feat
+
+- **calculations.zero**: removed calculations.zero
+
 ## 0.5.0 (2023-07-16)
 
 ### Feat

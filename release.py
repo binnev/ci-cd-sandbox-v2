@@ -1,11 +1,7 @@
+import glob
 import shutil
 import subprocess
 from pathlib import Path
-import calculator
-import glob
-import typer
-
-version = calculator.__version__
 
 
 def cleanup():
@@ -25,31 +21,24 @@ def check(question: str):
 
 
 def shell(cmd: str):
-    result = subprocess.run(cmd, shell=True)
-    if result.returncode != 0:
-        raise Exception(
-            f"{result.args} exited with returncode={result.returncode}"
+    try:
+        subprocess.run(
+            cmd,
+            shell=True,
+            check=True,  # raises exception on non-zero returncode
+            capture_output=True,
         )
+    except subprocess.CalledProcessError as e:
+        print(BOLD + FAIL + e.stderr.decode() + ENDC)
+        raise SystemExit
 
 
 def announce(s: str):
-    msg = "\n".join(
-        [
-            "=" * 80,
-            s.center(80),
-            "=" * 80,
-        ]
-    )
-    typer.secho(
-        message=msg,
-        fg=typer.colors.RED,
-        bold=True,
-    )
-    # print(BOLD + HEADER)
-    # print("=" * 80)
-    # print(s.center(80))
-    # print("=" * 80)
-    # print(ENDC)
+    print(BOLD)
+    print("=" * 80)
+    print(s.center(80))
+    print("=" * 80)
+    print(ENDC, end="")
 
 
 HEADER = "\033[95m"
@@ -63,11 +52,12 @@ BOLD = "\033[1m"
 UNDERLINE = "\033[4m"
 
 if __name__ == "__main__":
-    print(f"Releasing version {version}")
     cleanup()
 
     announce("Running tests")
     shell("pytest")
+
+    # todo: check coverage > 90%
 
     announce("Checking formatting with Black")
     shell("black . --check")
@@ -80,13 +70,11 @@ if __name__ == "__main__":
     shell("cz bump")
 
     print("Building docs")
-    shell(f"mike deploy {version}")
-    shell(f"mike alias {version} latest --update-aliases")
-    try:
-        process = shell("mike serve")
-    except KeyboardInterrupt:
-        pass
-    check("Do the docs look OK?")
+    # version import needs to happen after bump
+    from calculator import __version__
+
+    shell(f"mike deploy {__version__}")
+    shell(f"mike alias {__version__} latest --update-aliases")
     shell("mike list")
     check("Does the list of docs versions look OK?")
 

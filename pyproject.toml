@@ -1,6 +1,6 @@
 [project]
 name = "ci_cd_sandbox_v2"
-version = "0.5.0"
+version = "0.6.0"
 description = "A do-nothing library that I can practise my CI/CD routines on"
 
 [tool.black]
