@@ -58,3 +58,7 @@ def test_divide_by_zero():
 
 def test_two():
     assert calculations.two() == 2
+
+
+def test_three():
+    assert calculations.three() == 3

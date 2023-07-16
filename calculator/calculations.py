@@ -114,3 +114,7 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
 
 def two():
     return 2
+
+
+def three():
+    return 3
