@@ -55,8 +55,6 @@ if __name__ == "__main__":
     announce("Running tests")
     shell("pytest")
 
-    # todo: check coverage > 90%
-
     announce("Checking formatting with Black")
     shell("black . --check")
 
