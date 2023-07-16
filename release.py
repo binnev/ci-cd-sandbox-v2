@@ -15,8 +15,8 @@ def cleanup():
 
 
 def check(question: str):
-    response = input(question + "\n")
-    if response.lower() not in ["y", "yes"]:
+    response = input(question + "[Y/n]: ")
+    if response.strip().lower() not in ["y", ""]:
         raise Exception(f"Action required")
 
 
@@ -64,6 +64,7 @@ if __name__ == "__main__":
 
     announce("Bump version and auto-update changelog")
     shell("cz bump")
+    check("Does the changelog look OK?")
 
     announce("Building package")
     shell("python -m build")

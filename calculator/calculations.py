@@ -110,3 +110,7 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
     if b == 0:
         raise ZeroDivisionError("division by zero")
     return float(a / b)
+
+
+def two():
+    return 2
