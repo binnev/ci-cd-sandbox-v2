@@ -14,7 +14,6 @@ testpaths = [
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-#tag_format = "$version"
 version_files = [
     "pyproject.toml:version",
     "calculator/__init__.py:__version__",
