@@ -1,3 +1,9 @@
+## 0.12.0 (2023-07-16)
+
+### Feat
+
+- **calculations**: added four()
+
 ## 0.11.0 (2023-07-16)
 
 ### BREAKING CHANGE
