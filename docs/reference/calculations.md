@@ -1,4 +1,4 @@
-# Reference
+# Calculations
 
 This part of the project documentation focuses on
 an **information-oriented** approach. Use it as a
